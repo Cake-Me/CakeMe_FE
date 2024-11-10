@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import Map from '../components/Map';
 import StoreList from '../components/StoreList';
 
@@ -32,91 +33,92 @@ const MapPage = () => {
   };
 
   return (
-    <div style={styles.background}>
-      <div style={styles.searchContainer}>
-        <input 
+    <Background>
+      <SearchContainer>
+        <SearchInput 
           type="text" 
           value={searchKeyword} 
           onChange={(e) => setSearchKeyword(e.target.value)}
           placeholder="검색어를 입력하세요"
-          style={styles.searchInput}
         />
-        <button onClick={handleSearch} style={styles.searchButton}>검색</button>
-      </div>
+        <SearchButton onClick={handleSearch}>검색</SearchButton>
+      </SearchContainer>
       
-      <div style={styles.contentContainer}>
-        <div style={styles.leftPanel}>
+      <ContentContainer>
+        <LeftPanel>
           <StoreList stores={stores} />
-        </div>
-        <div style={styles.rightPanel}>
+        </LeftPanel>
+        <RightPanel>
           <Map stores={stores} />
-        </div>
-      </div>
-    </div>
+        </RightPanel>
+      </ContentContainer>
+    </Background>
   );
 };
 
-const styles = {
-  background: {
-    width: '98%',
-    height: '772px',
-    borderRadius: '40px',
-    background: '#F7F2EB',
-    margin: '20px auto',
-    display: 'flex',
-    flexDirection: 'column',
-    overflow: 'hidden',
-  },
-  searchContainer: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    padding: '20px',
-    gap: '10px',
-  },
-  searchInput: {
-    border: '2px solid #BDAB99',
-    width: '350px',
-    height: '25px',
-    borderRadius: '19px',
-    background: '#FFF',
-    padding: '8px',
-    padding: '8px 40px 8px 40px', // 텍스트 입력 패딩 (아이콘 공간 확보)
-    backgroundImage: 'url("/src/assets/search_icon.svg")', // 이미지 경로 설정
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: '10px center', // 이미지 위치
-    backgroundSize: '24px', // 이미지 크기
-  },
-  searchButton: {
-    width: '97px',
-    height: '40px',
-    borderRadius: '19px',
-    backgroundColor: '#BDAB99',
-    color: '#fff',
-    border: 'none',
-    cursor: 'pointer',
-    padding: '8px',
-    fontSize: '15px',
-    fontColor: '#F7F2EB',
-  },
-  contentContainer: {
-    display: 'flex',
-    height: 'calc(100% - 80px)',
-  },
-  leftPanel: {
-    width: '300px',
-    height: '100%',
-    overflowY: 'auto',
-    padding: '10px',
-    boxSizing: 'border-box',
-  },
-  rightPanel: {
-    flex: 1,
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-};
+const Background = styled.div`
+  width: 98%;
+  height: 772px;
+  border-radius: 40px;
+  background: #F7F2EB;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+`;
+
+const SearchContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+`;
+
+const SearchInput = styled.input`
+  border: 2px solid #BDAB99;
+  width: 350px;
+  height: 25px;
+  border-radius: 19px;
+  background: #FFF;
+  padding: 8px 40px 8px 40px;
+  background-image: url("/src/assets/search_icon.svg");
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px;
+`;
+
+const SearchButton = styled.button`
+  width: 97px;
+  height: 40px;
+  border-radius: 19px;
+  background-color: #BDAB99;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 15px;
+`;
+
+const ContentContainer = styled.div`
+  display: flex;
+  height: calc(100% - 80px);
+`;
+
+const LeftPanel = styled.div`
+  width: 300px;
+  height: 95%;
+  overflow-y: auto;
+  padding: 10px;
+  box-sizing: border-box;
+`;
+
+const RightPanel = styled.div`
+  flex: 1;
+  height: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default MapPage;

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
 
 const Map = ({ stores }) => {
   useEffect(() => {
@@ -44,7 +45,14 @@ const Map = ({ stores }) => {
     loadKakaoMapScript().then((kakao) => initializeMap(kakao));
   }, [stores]);
 
-  return <div id="map" style={{ width: '98%', height: '100%' }}></div>;
+  return (
+    <MapContainer id="map" />
+  );
 };
+
+const MapContainer = styled.div`
+  width: 98%;
+  height: 100%;
+`;
 
 export default Map;
