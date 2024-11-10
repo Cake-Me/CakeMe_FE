@@ -17,6 +17,7 @@ import MainPage from "./pages/Main.jsx";
 import NotFound from "./pages/not-found.jsx";
 import RootLayout from "./layout/root-layout.jsx";
 import Map from "./pages/MapPage.jsx"
+import Community from "./pages/Community.jsx";
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
               path: 'map',
               element: <Map/>
           },
+          {
+            path: 'community',
+            element: <Community/>
+        },
           // {
           //   path: 'movies/:movieId', // 영화 상세 페이지 경로 추가
           //   element: <Detail/>

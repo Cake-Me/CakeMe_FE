@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const Main = () => {
+const Community = () => {
     return (
-        <StyledContent>Main Page</StyledContent>
+        <StyledContent>Community Page</StyledContent>
     );
 };
 
-export default Main;
+export default Community;
 
 const StyledContent = styled.h1`
     height: 100%;

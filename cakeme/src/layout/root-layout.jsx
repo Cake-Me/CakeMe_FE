@@ -19,13 +19,13 @@ export default RootLayout;
   
 export const MainContent = styled.div`
     display: flex;
-    background-color: ghostwhite;
+    background-color: white;
 `;
   
 export const ContentWrapper = styled.div`
     height: 110%;
     width: 100%;
     overflow-y: auto;
-    background-color: ghostwhite;
+    background-color: white;
 `;
 
