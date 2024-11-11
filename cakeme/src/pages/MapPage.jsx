@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Map from '../components/Map';
-import StoreList from '../components/StoreList';
+import Map from '../components/map/Map';
+import StoreList from '../components/map/StoreList';
 
 const MapPage = () => {
   const [stores, setStores] = useState([]);
