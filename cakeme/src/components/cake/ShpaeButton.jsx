@@ -4,15 +4,15 @@ import * as S from "./CakeDesign.style";
 
 const ShapeButton = ({ shape, label, selected, onClick }) => {
   return (
-    <S.ShapeButton selected={selected} onClick={onClick}>
-      <S.Shape shape={shape} />
-      <p>{label}</p>
-    </S.ShapeButton>
+    <S.ShapeButtonContainer selected={selected} onClick={onClick}>
+      <S.ShapeIcon shape={shape} />
+      <S.ShapeLabel>{label}</S.ShapeLabel> {/* 글씨는 버튼 바깥으로 */}
+    </S.ShapeButtonContainer>
   );
 };
 
 ShapeButton.propTypes = {
-  shape: PropTypes.oneOf(["circle", "square", "heart"]).isRequired, // 허용된 모양
+  shape: PropTypes.oneOf(["circle", "square", "heart"]).isRequired,
   label: PropTypes.string.isRequired,
   selected: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,

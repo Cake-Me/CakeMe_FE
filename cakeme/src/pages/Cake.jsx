@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import CakeDesign from "../components/cake/CakeDesign"; 
+import CakeDesign from "../components/cake/CakeDesign01"; 
 
 // 스타일 정의
 const CakeContainer = styled.div`

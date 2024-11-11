@@ -6,7 +6,6 @@ import RootLayout from "./layout/root-layout.jsx";
 import Map from "./pages/MapPage.jsx"
 import Community from "./pages/Community.jsx";
 import Cake from "./pages/Cake.jsx";
-import CakeDesign from "./components/cake/CakeDesign.jsx";
 
 
 const router = createBrowserRouter([
@@ -34,10 +33,8 @@ const router = createBrowserRouter([
           path: 'cake',
           element: <Cake/>
       },
-      {
-        path: "cake/design", 
-        element: <CakeDesign />,
-      },
+     
+
          
       ]
   },

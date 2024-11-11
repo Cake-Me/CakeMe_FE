@@ -23,7 +23,7 @@ export const MainContent = styled.div`
 `;
   
 export const ContentWrapper = styled.div`
-    height: 110%;
+    height: 100%;
     width: 100%;
     overflow-y: auto;
     background-color: white;
