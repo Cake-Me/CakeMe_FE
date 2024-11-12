@@ -25,10 +25,23 @@ export const TitleContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 70px;
+  color: rgba(120, 60, 3, 0.75);
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: rgba(111, 98, 79, 0.50);
+  font-family: Pretendard;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+`;
+
+export const Title2 = styled.h1`
+  font-size: 30px;
   font-weight: bold;
-  color: #6f4e37;
+  color: black;
   margin: 5px 0;
+  text-align: left;
+  margin-left: 2%;
 `;
 
 export const Button = styled(Link)`
@@ -40,7 +53,7 @@ export const Button = styled(Link)`
   background-color: #FFFCF7;
   color: #783C03;
   border-radius: 15px;
-  border-color: #783C03;
+  border: 1px solid #783C03;
   cursor: pointer;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
   text-decoration: none;
@@ -94,6 +107,7 @@ export const Wrapper = styled.div`
   display: flex;
   width: 200%;
   margin-bottom: 4%;
+  margin-left: 1%;
 `;
 
 export const Container = styled.div`

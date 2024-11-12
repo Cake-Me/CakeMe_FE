@@ -1,6 +1,7 @@
 import React from 'react';
 import CategoryItem from './CategoryItem';
 import * as S from './Main.style.js'
+import check from '../../assets/image/check.png'
 
 const items = [
     {
@@ -42,16 +43,22 @@ const items = [
 
 const CategoryList = () => {
   return (
-    <S.List>
-      <S.Wrapper>
-        {Array(2)
-          .fill(items)
-          .flat()
-          .map((item, index) => (
-            <CategoryItem key={index} src={item.src} alt={item.alt} text={item.text} />
-          ))}
-      </S.Wrapper>
-    </S.List>
+    <>
+      <S.Title2>
+        <img src={check} alt="체크" style={{ width:'28px', height: '28px',marginRight: '10px' }}></img>
+        카테고리별 케이크 디자인 구경하기
+      </S.Title2>
+      <S.List>
+        <S.Wrapper>
+          {Array(2)
+            .fill(items)
+            .flat()
+            .map((item, index) => (
+              <CategoryItem key={index} src={item.src} alt={item.alt} text={item.text} />
+            ))}
+        </S.Wrapper>
+      </S.List>
+    </>
   );
 };
 
