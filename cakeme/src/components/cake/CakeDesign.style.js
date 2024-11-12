@@ -7,8 +7,8 @@ flex-grow: 1;
   text-align: center;
   background-color: #f8f5ee;
   border-radius: 10px;
-  padding: 20px;
-  width: 90%;
+  padding: 10px;
+  width: 98%;
   height:100%;
   margin: 0 auto;
   display: flex;
@@ -22,9 +22,10 @@ flex-grow: 1;
 export const Title = styled.h1`
   font-size: 40px;
   font-weight: bold;
-  margin-left:50px;
+  margin-top:0px;
+  margin-left:5%;
   color: #593E17;
-
+  line-height: 1; 
 `;
 
 // 단계 텍스트
@@ -37,14 +38,14 @@ export const Step = styled.p`
 // 안내 문구
 export const Instruction = styled.p`
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 5%;
   color: #676767;
 `;
 export const ShapeOptions = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center; /* 수직 정렬 */
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 `;
 // ShapeButton 컴포넌트 스타일 추가
 export const ShapeButtonContainer = styled.div`
@@ -86,18 +87,20 @@ export const ShapeIcon = styled.div`
     css`
       border-radius: 8px; /* 사각형 둥근 모서리 설정 */
     `}
-    ${(props) =>
+
+   ${(props) =>
       props.shape === "heart" &&
       css`
         --c: #CFB7A0; /* 하트 색상 */
-        width: 80px;
-        height: 80px;
         aspect-ratio: 1; /* 1:1 비율 */
+        width: 80px; /* 하트 너비 */
+        height: 80px; /* 하트 높이 */
         background: 
           radial-gradient(at 70% 31%, var(--c) 29%, #0000 30%),
           radial-gradient(at 30% 31%, var(--c) 29%, #0000 30%),
           linear-gradient(var(--c) 0 0) bottom/100% 50% no-repeat;
-        clip-path: polygon(-43% 0, 50% 91%, 143% 0);
+        clip-path: polygon(-35% 0, 50% 100%, 135% 0);
+        transform: scale(1.2); /* 하트를 1.2배 확대 */
       `}
 `;
 
@@ -118,7 +121,7 @@ export const ActionButtons = styled.div`
   display: flex;
   justify-content: center; /* 버튼을 중앙 정렬 */
   gap: 30%; /* 버튼 사이 간격 설정 */
-  margin-top: 20px;
+  margin-top:6%;
 `;
 
 // 취소 버튼
@@ -161,16 +164,19 @@ export const NextButton = styled.button`
   }
 `;
 
-
 // Header 스타일
 export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between; /* 제목은 왼쪽, 단계 바는 오른쪽 */
   width: 100%;
+  margin-top:5px;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* 모바일에서는 위아래로 정렬 */
+    align-items: flex-start; /* 모바일에서 왼쪽 정렬 */
+  }
 `;
-
-
 
 // 단계 표시 컨테이너 (가운데 정렬)
 export const StepIndicator = styled.div`
@@ -178,8 +184,15 @@ export const StepIndicator = styled.div`
   gap: 10px; /* 단계 간 간격 */
   justify-content: center;
   align-items: center;
-  margin-right: 40%; /* 필요 시 오른쪽 여백 추가 */
+  margin-right: 38%; /* 필요 시 오른쪽 여백 추가 */
+
+  @media (max-width: 768px) {
+    margin-right: 0; /* 모바일에서 여백 제거 */
+    justify-content: flex-start; /* 모바일에서는 왼쪽 정렬 */
+    width: 100%; /* 모바일에서 전체 너비 사용 */
+  }
 `;
+
 
 // 단계 바 스타일
 export const StepBar = styled.div`
