@@ -14,7 +14,7 @@ flex-grow: 1;
   display: flex;
   overflow-y: auto;
   flex-direction: column; /* 추가: 내용 정렬 */
-
+  padding-bottom: 12%;
 `;
 
 

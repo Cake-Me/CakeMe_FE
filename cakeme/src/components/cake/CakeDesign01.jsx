@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ShapeButton from "./ShpaeButton.jsx";
-import * as S from "./CakeDesign.style.jsx";
+import * as S from "./CakeDesign.style.js";
 import { useNavigate } from "react-router-dom"; 
 
 const CakeDesign = () => {
