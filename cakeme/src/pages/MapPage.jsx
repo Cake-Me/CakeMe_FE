@@ -58,13 +58,14 @@ const MapPage = () => {
 
 const Background = styled.div`
   width: 98%;
-  height: 772px;
+  height: 100%;
   border-radius: 40px;
   background: #F7F2EB;
   margin: 0px auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  padding-bottom: 12%;
 `;
 
 const SearchContainer = styled.div`
@@ -102,12 +103,12 @@ const SearchButton = styled.button`
 
 const ContentContainer = styled.div`
   display: flex;
-  height: calc(100% - 80px);
+  height: 100%;
 `;
 
 const LeftPanel = styled.div`
   width: 300px;
-  height: 95%;
+  height: 700px;
   overflow-y: auto;
   padding: 10px;
   box-sizing: border-box;
@@ -115,7 +116,7 @@ const LeftPanel = styled.div`
 
 const RightPanel = styled.div`
   flex: 1;
-  height: 95%;
+  height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
