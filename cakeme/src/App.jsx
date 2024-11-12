@@ -6,7 +6,12 @@ import RootLayout from "./layout/root-layout.jsx";
 import Map from "./pages/MapPage.jsx"
 import Community from "./pages/Community.jsx";
 import Cake from "./pages/Cake.jsx";
-
+import Cake2 from "./pages/Cake2.jsx";
+import Cake3 from "./pages/Cake3.jsx";
+import Cake4 from "./pages/Cake4.jsx";
+import Cake5 from "./pages/Cake5.jsx";
+import Cake6 from "./pages/Cake6.jsx";
+import CakeResult from "./pages/CakeResult.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,10 +37,31 @@ const router = createBrowserRouter([
         {
           path: 'cake',
           element: <Cake/>
-      },
-     
-
-         
+        },
+        {
+          path: 'cake/2',
+          element: <Cake2/>
+        },
+        {
+          path: 'cake/3',
+          element: <Cake3/>
+        },
+        {
+          path: 'cake/4',
+          element: <Cake4/>
+        },
+        {
+          path: 'cake/5',
+          element: <Cake5/>
+        },
+        {
+          path: 'cake/6',
+          element: <Cake6/>
+        },
+        {
+          path: 'cake/result',
+          element: <CakeResult/>
+        },         
       ]
   },
 
