@@ -1,16 +1,16 @@
-import styled from 'styled-components';
+import CategoryList from '../components/main/CategoryList.jsx';
+import MainHeader from '../components/main/MainHeader.jsx';
+import * as S from '../components/main/Main.style.js'
 
 const Main = () => {
-    return (
-        <StyledContent>Main Page</StyledContent>
-    );
+  return (
+    <S.Container>
+      <MainHeader />
+      <S.CategorySection>
+        <CategoryList />
+      </S.CategorySection>
+    </S.Container>
+  );
 };
 
 export default Main;
-
-const StyledContent = styled.h1`
-    height: 100%;
-    background-color: white;
-    color: black;
-    margin-top: 5px;
-`;
