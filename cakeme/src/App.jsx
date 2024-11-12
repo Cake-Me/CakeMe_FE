@@ -1,16 +1,3 @@
-// import './App.css'
-// import MapPage from './pages/MapPage';
-
-// function App() {
-
-//   return (
-//     <div>
-//       <h1>안녕하세요</h1>
-//       <MapPage/>
-//     </div>
-//   )
-// }
-
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
 import MainPage from "./pages/Main.jsx";
@@ -18,6 +5,7 @@ import NotFound from "./pages/not-found.jsx";
 import RootLayout from "./layout/root-layout.jsx";
 import Map from "./pages/MapPage.jsx"
 import Community from "./pages/Community.jsx";
+import Cake from "./pages/Cake.jsx";
 
 
 const router = createBrowserRouter([
@@ -41,18 +29,13 @@ const router = createBrowserRouter([
             path: 'community',
             element: <Community/>
         },
-          // {
-          //   path: 'movies/:movieId', // 영화 상세 페이지 경로 추가
-          //   element: <Detail/>
-          // },
-          // {
-          //   path: 'login',
-          //   element: <Login/>
-          // },
-          // {
-          //   path: 'signup',
-          //   element: <Signup/>
-          // },
+        {
+          path: 'cake',
+          element: <Cake/>
+      },
+     
+
+         
       ]
   },
 
