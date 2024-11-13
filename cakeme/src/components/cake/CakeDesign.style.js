@@ -54,12 +54,12 @@ export const ShapeButtonContainer = styled.div`
   align-items: center;
   cursor: pointer;
   padding: 20px; /* 버튼과 테두리 간 여백 */
-  border: 2px dashed ${(props) => (props.selected ? "#593E17" : "#6F624F")}; 
+  border: 2px ${(props) => (props.selected ? "solid" : "dashed")} ${(props) => (props.selected ? "#593E17" : "#6F624F")}; 
   border-radius: 10px;
   background-color: ${(props) => (props.selected ? "#FFFFFF" : "#FFFCF7")};
   transition: all 0.3s ease;
   position: relative; /* 글씨 위치를 버튼 바깥에 놓기 위해 사용 */
-/* 선택되었을 때 그림자 추가 */
+
   box-shadow: ${(props) =>
     props.selected
       ? "0px 4px 8px rgba(0, 0, 0, 0.2)" /* 선택된 경우 그림자 */
@@ -69,9 +69,10 @@ export const ShapeButtonContainer = styled.div`
   }
 `;
 
+
 export const ShapeIcon = styled.div`
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,8 +94,8 @@ export const ShapeIcon = styled.div`
       css`
         --c: #CFB7A0; /* 하트 색상 */
         aspect-ratio: 1; /* 1:1 비율 */
-        width: 80px; /* 하트 너비 */
-        height: 80px; /* 하트 높이 */
+        width: 120px; /* 하트 너비 */
+        height: 120px; /* 하트 높이 */
         background: 
           radial-gradient(at 70% 31%, var(--c) 29%, #0000 30%),
           radial-gradient(at 30% 31%, var(--c) 29%, #0000 30%),
@@ -201,4 +202,43 @@ export const StepBar = styled.div`
   border-radius: 5px; /* 둥근 모서리 */
   background-color: ${(props) => (props.$active ? "#a0846a" : "#d4cdbf")}; /* 활성화 색상 */
   transition: background-color 0.3s ease;
+`;
+
+export const FlavorButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 20px; /* 버튼과 테두리 간 여백 */
+  border: 2px ${(props) => (props.selected ? "solid" : "dashed")} ${(props) => (props.selected ? "#593E17" : "#6F624F")}; 
+  border-radius: 10px;
+  background-color: ${(props) => (props.selected ? "#FFFFFF" : "#FFFCF7")};
+  transition: all 0.3s ease;
+  position: relative; /* 글씨 위치를 버튼 바깥에 놓기 위해 사용 */
+
+  box-shadow: ${(props) =>
+    props.selected
+      ? "0px 4px 8px rgba(0, 0, 0, 0.2)" /* 선택된 경우 그림자 */
+      : "none"}; /* 선택되지 않았을 경우 그림자 없음 */
+  &:hover {
+    border-color: #6F624F;
+  }
+`;
+
+export const FlavorImage = styled.img`
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FlavorLabel = styled.span`
+  font-size: 20px;
+  color: #000000;
+  margin-top: 10px;
+  position: absolute;
+  top: 100%; /* 버튼 아래로 글씨를 이동 */
+  left: 50%;
+  transform: translateX(-50%);
 `;

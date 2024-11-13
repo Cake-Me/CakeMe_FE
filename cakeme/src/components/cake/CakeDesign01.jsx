@@ -15,6 +15,10 @@ const CakeDesign = () => {
     navigate("/");
   };
 
+  const handleCancel_next = () => {
+    navigate("/cake/2");
+  };
+
   return (
     <S.Container>
       <S.Header>
@@ -52,7 +56,7 @@ const CakeDesign = () => {
       </S.ShapeOptions>
       <S.ActionButtons>
         <S.CancelButton onClick={handleCancel}>제작 취소</S.CancelButton>
-        <S.NextButton>다음 질문 &gt;</S.NextButton>
+        <S.NextButton onClick={handleCancel_next}>다음 질문 &gt;</S.NextButton>
       </S.ActionButtons>
     </S.Container>
   );
