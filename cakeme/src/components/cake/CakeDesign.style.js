@@ -242,3 +242,149 @@ export const FlavorLabel = styled.span`
   left: 50%;
   transform: translateX(-50%);
 `;
+
+// 팔레트와 선택된 색상 전체를 감싸는 컨테이너
+export const ColorSelectionContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin: 5px 0;
+  background-color: #f8f5ee;
+`;
+
+// SketchPicker와 CirclePicker를 감싸는 컨테이너
+export const PickerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 400px;
+  height:400px;
+   border: 2px solid #6f624f;
+  border-radius: 10px;
+  padding: 20px;
+   background-color: #ffffff;
+   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+   margin-left:20%;
+`;
+
+// 무지개 Circle 컨테이너
+export const RainbowCircle = styled.div`
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(red, orange, yellow, green, blue, indigo, violet);
+  cursor: pointer;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+`;
+
+// 무지개 Circle 내부의 + 아이콘
+export const PlusIcon = styled.div`
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #593e17;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+`;
+
+// SketchPicker 컨테이너
+export const SketchPickerWrapper = styled.div`
+  position: absolute; /* 부모 요소 기준으로 위치 지정 */
+  z-index: 1000; /* 다른 요소보다 위에 렌더링 */
+  top: 400px; /* RainbowCircle 아래에 위치 */
+  left: 5%; /* 부모 기준 왼쪽 정렬 */
+  display: flex;
+  flex-direction: column; /* 버튼과 SketchPicker 수직 정렬 */
+  align-items: center;
+  padding: 10px;
+  border: 2px solid #6F624F; /* 테두리 스타일 */
+  border-radius: 20px;
+  background-color: #FFFFFF; /* 배경 흰색 */
+
+  width: max-content;
+
+  /* 애니메이션 추가 (선택적으로 적용 가능) */
+  animation: fadeIn 0.3s ease-in-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+// 선택된 색상 표시 영역
+export const SelectedColorsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 20px;
+  background-color: #f8f5ee;
+  width: 200px;
+  margin-right:20%;
+`;
+
+
+// 선택된 단일 컬러 박스
+export const SelectedColor = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+// 선택된 컬러 표시 박스
+export const ColorDisplay = styled.div`
+  width: 200px;
+  height: 80px;
+  border-radius: 20px;
+  border: 2px solid #6f624f;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+`;
+
+export const ColorCode = styled.span`
+  font-size: 25px;
+  color: #000000;
+`;
+
+// SketchPicker에서 추가 버튼
+export const AddColorButton = styled.button`
+  margin-top: 10px;
+  padding: 5px 10px;
+    background-color: #FFFCF7;
+    color: #000000;
+  border: 1px solid #6F624F;
+  font-size: 16px;
+   border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+   &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &:active {
+    background-color: #e0e0e0;
+  }
+`;
