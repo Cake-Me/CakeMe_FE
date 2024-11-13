@@ -38,7 +38,7 @@ export const Step = styled.p`
 // 안내 문구
 export const Instruction = styled.p`
   font-size: 20px;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   color: #676767;
 `;
 export const ShapeOptions = styled.div`
@@ -241,4 +241,236 @@ export const FlavorLabel = styled.span`
   top: 100%; /* 버튼 아래로 글씨를 이동 */
   left: 50%;
   transform: translateX(-50%);
+`;
+
+// 팔레트와 선택된 색상 전체를 감싸는 컨테이너
+export const ColorSelectionContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin: 5px 0;
+  background-color: #f8f5ee;
+`;
+
+// SketchPicker와 CirclePicker를 감싸는 컨테이너
+export const PickerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 390px;
+  height:380px;
+   border: 2px solid #6f624f;
+  border-radius: 20px;
+  padding: 20px;
+   background-color: #FFFCF7;
+   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+   margin-left:25%;
+`;
+
+// 무지개 Circle 컨테이너
+export const RainbowCircle = styled.div`
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(red, orange, yellow, green, blue, indigo, violet);
+  cursor: pointer;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+`;
+
+// 무지개 Circle 내부의 + 아이콘
+export const PlusIcon = styled.div`
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #593e17;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+`;
+
+// SketchPicker 컨테이너
+export const SketchPickerWrapper = styled.div`
+  position: absolute; /* 부모 요소 기준으로 위치 지정 */
+  z-index: 1000; /* 다른 요소보다 위에 렌더링 */
+  top: 48%; /* RainbowCircle 아래에 위치 */
+  left: 6%; /* 부모 기준 왼쪽 정렬 */
+  display: flex;
+  flex-direction: column; /* 버튼과 SketchPicker 수직 정렬 */
+  align-items: center;
+  padding: 10px;
+  border:none;
+  background-color: #f8f5ee; 
+  box-shadow: none !important; /* 모든 그림자 제거 */
+  width: max-content;
+
+  /* SketchPicker 자체 그림자 제거 */
+  .sketch-picker {
+    box-shadow: none !important; /* SketchPicker 컴포넌트의 그림자 제거 */
+  }
+
+  /* 애니메이션 추가 (선택적으로 적용 가능) */
+  animation: fadeIn 0.3s ease-in-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+
+// 선택된 색상 표시 영역
+export const SelectedColorsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 20px;
+  background-color: #f8f5ee;
+  width: 200px;
+  margin-right:20%;
+  margin-top:30px;
+`;
+
+
+// 선택된 단일 컬러 박스
+export const SelectedColor = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+// 선택된 컬러 표시 박스
+export const ColorDisplay = styled.div`
+  width: 200px;
+  height: 80px;
+  border-radius: 20px;
+  border: 2px solid #6f624f;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+`;
+
+export const ColorCode = styled.span`
+  font-size: 25px;
+  color: #000000;
+`;
+
+// SketchPicker에서 추가 버튼
+export const AddColorButton = styled.button`
+  margin-top: 10px;
+  padding: 5px 10px;
+    background-color: #FFFCF7;
+    color: #000000;
+  border: 1px solid #6F624F;
+  font-size: 16px;
+   border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+   &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &:active {
+    background-color: #e0e0e0;
+  }
+`;
+
+// 이미지 및 문구 입력 컨테이너
+export const InputContainer = styled.div`
+  display: flex;
+  justify-content: center; /* 수평 정렬 */
+  align-items: center; /* 수직 정렬 */
+  margin: 10px 0; /* 전체 컨테이너 여백 */
+`;
+
+// 입력 박스 스타일
+export const InputBox = styled.div`
+  flex: 1; /* 동일한 크기로 분배 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
+
+// 이미지 업로드 박스
+export const ImageUploadBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px; 
+  height: 250px; 
+  border: 2px solid #6f624f;
+  border-radius: 20px;
+  background-color: #fffcf7;
+      padding: 20px;
+  cursor: pointer;
+  position: relative;
+  color: #999;
+
+
+  label {
+    font-size: 16px;
+    color: #999;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+// 업로드된 이미지 미리보기
+export const PreviewImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+`;
+
+// 텍스트 입력 박스
+export const TextArea = styled.textarea`
+  width: 400px; 
+  height: 250px; 
+  border: 2px solid #6f624f;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 16px;
+  color: #000;
+  resize: none;
+  background-color: #fffcf7;
+
+
+  &::placeholder {
+    color: #999;
+    font-size: 14px;
+    font-family: "Pretendard", sans-serif; /* Pretendard 적용 */
+  }
+`;
+
+// 입력 라벨 스타일
+export const InputLabel = styled.span`
+  font-size: 20px;
+  color: #000000;
 `;

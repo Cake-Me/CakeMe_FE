@@ -1,8 +1,18 @@
 import React from "react";
+import styled from "styled-components";
+import CakeDesign from "../components/cake/CakeDesign06"; 
+
+const CakeContainer = styled.div`
+  display: flex;
+  align-items: center;
+  
+`;
 
 const Cake6 = () => {
   return (
-    <div>cake6</div>
+    <CakeContainer>
+      <CakeDesign />
+    </CakeContainer>
   );
 };
 
