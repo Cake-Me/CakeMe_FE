@@ -395,3 +395,75 @@ export const AddColorButton = styled.button`
     background-color: #e0e0e0;
   }
 `;
+
+// 이미지 및 문구 입력 컨테이너
+export const InputContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 10px 0;
+`;
+
+// 입력 박스 스타일
+export const InputBox = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
+
+// 이미지 업로드 박스
+export const ImageUploadBox = styled.div`
+  width: 300px;
+  height: 250px;
+border: 2px solid #6f624f;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffcf7;
+  cursor: pointer;
+
+  span {
+    font-size: 16px;
+    color: #999;
+  }
+
+  input {
+    display: none;
+  }
+`;
+
+// 업로드된 이미지 미리보기
+export const PreviewImage = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+`;
+
+// 텍스트 입력 박스
+export const TextArea = styled.textarea`
+  width: 450px;
+  height: 250px;
+  border: 2px solid #6f624f;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 16px;
+  color: #000;
+  resize: none;
+  background-color: #fffcf7;
+
+  &::placeholder {
+    color: #999;
+    font-size: 14px;
+    font-family: "Arial", sans-serif;
+  }
+`;
+
+// 입력 라벨 스타일
+export const InputLabel = styled.span`
+  font-size: 20px;
+  color: #000000;
+`;
