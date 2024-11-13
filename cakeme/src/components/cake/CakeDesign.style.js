@@ -38,7 +38,7 @@ export const Step = styled.p`
 // 안내 문구
 export const Instruction = styled.p`
   font-size: 20px;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   color: #676767;
 `;
 export const ShapeOptions = styled.div`
@@ -259,14 +259,14 @@ export const PickerContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  width: 400px;
-  height:400px;
+  width: 390px;
+  height:380px;
    border: 2px solid #6f624f;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 20px;
-   background-color: #ffffff;
+   background-color: #FFFCF7;
    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-   margin-left:20%;
+   margin-left:25%;
 `;
 
 // 무지개 Circle 컨테이너
@@ -304,17 +304,22 @@ export const PlusIcon = styled.div`
 export const SketchPickerWrapper = styled.div`
   position: absolute; /* 부모 요소 기준으로 위치 지정 */
   z-index: 1000; /* 다른 요소보다 위에 렌더링 */
-  top: 400px; /* RainbowCircle 아래에 위치 */
-  left: 5%; /* 부모 기준 왼쪽 정렬 */
+  top: 48%; /* RainbowCircle 아래에 위치 */
+  left: 6%; /* 부모 기준 왼쪽 정렬 */
   display: flex;
   flex-direction: column; /* 버튼과 SketchPicker 수직 정렬 */
   align-items: center;
   padding: 10px;
-  border: 2px solid #6F624F; /* 테두리 스타일 */
   border-radius: 20px;
-  background-color: #FFFFFF; /* 배경 흰색 */
+  background-color: #f8f5ee; /* 배경 흰색 */
+  box-shadow: none !important; /* 모든 그림자 제거 */
 
   width: max-content;
+
+  /* SketchPicker 자체 그림자 제거 */
+  .sketch-picker {
+    box-shadow: none !important; /* SketchPicker 컴포넌트의 그림자 제거 */
+  }
 
   /* 애니메이션 추가 (선택적으로 적용 가능) */
   animation: fadeIn 0.3s ease-in-out;
@@ -331,6 +336,7 @@ export const SketchPickerWrapper = styled.div`
   }
 `;
 
+
 // 선택된 색상 표시 영역
 export const SelectedColorsContainer = styled.div`
   display: flex;
@@ -342,6 +348,7 @@ export const SelectedColorsContainer = styled.div`
   background-color: #f8f5ee;
   width: 200px;
   margin-right:20%;
+  margin-top:30px;
 `;
 
 

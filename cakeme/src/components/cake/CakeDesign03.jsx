@@ -76,7 +76,7 @@ const CakeDesign = () => {
     "#2196F3", "#03A9F4", "#00BCD4", "#009688", "#4CAF50",
     "#8BC34A", "#CDDC39", "#FFEB3B", "#FFC107", "#FF9800",
     "#FF5722", "#795548", "#9E9E9E", "#607D8B","#000000",
-  ]} // 원하는 색상 배열
+  ]}
   onChange={handleColorChange}
   circleSize={50} 
   circleSpacing={10} 
