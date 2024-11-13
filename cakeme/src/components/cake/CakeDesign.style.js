@@ -310,10 +310,9 @@ export const SketchPickerWrapper = styled.div`
   flex-direction: column; /* 버튼과 SketchPicker 수직 정렬 */
   align-items: center;
   padding: 10px;
-  border-radius: 20px;
-  background-color: #f8f5ee; /* 배경 흰색 */
+  border:none;
+  background-color: #f8f5ee; 
   box-shadow: none !important; /* 모든 그림자 제거 */
-
   width: max-content;
 
   /* SketchPicker 자체 그림자 제거 */
@@ -399,14 +398,14 @@ export const AddColorButton = styled.button`
 // 이미지 및 문구 입력 컨테이너
 export const InputContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 10px 0;
+  justify-content: center; /* 수평 정렬 */
+  align-items: center; /* 수직 정렬 */
+  margin: 10px 0; /* 전체 컨테이너 여백 */
 `;
 
 // 입력 박스 스타일
 export const InputBox = styled.div`
-  flex: 1;
+  flex: 1; /* 동일한 크기로 분배 */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -415,23 +414,30 @@ export const InputBox = styled.div`
 
 // 이미지 업로드 박스
 export const ImageUploadBox = styled.div`
-  width: 300px;
-  height: 250px;
-border: 2px solid #6f624f;
-  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 400px; 
+  height: 250px; 
+  border: 2px solid #6f624f;
+  border-radius: 20px;
   background-color: #fffcf7;
+      padding: 20px;
   cursor: pointer;
+  position: relative;
+  color: #999;
 
-  span {
+
+  label {
     font-size: 16px;
     color: #999;
-  }
-
-  input {
-    display: none;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
   }
 `;
 
@@ -445,8 +451,8 @@ export const PreviewImage = styled.img`
 
 // 텍스트 입력 박스
 export const TextArea = styled.textarea`
-  width: 450px;
-  height: 250px;
+  width: 400px; 
+  height: 250px; 
   border: 2px solid #6f624f;
   border-radius: 20px;
   padding: 20px;
@@ -455,10 +461,11 @@ export const TextArea = styled.textarea`
   resize: none;
   background-color: #fffcf7;
 
+
   &::placeholder {
     color: #999;
     font-size: 14px;
-    font-family: "Arial", sans-serif;
+    font-family: "Pretendard", sans-serif; /* Pretendard 적용 */
   }
 `;
 

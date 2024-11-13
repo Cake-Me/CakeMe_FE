@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import * as S from "./CakeDesign.style.js";
 import { useNavigate } from "react-router-dom"; 
 
 const CakeDesign = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [desiredText, setDesiredText] = useState("");
+  const fileInputRef = useRef(null); // input 요소 참조
   const navigate = useNavigate();
 
   const handleImageChange = (event) => {
@@ -12,7 +13,7 @@ const CakeDesign = () => {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        setSelectedImage(e.target.result);
+        setSelectedImage(e.target.result); // 미리보기 이미지 설정
       };
       reader.readAsDataURL(file);
     }
@@ -20,6 +21,11 @@ const CakeDesign = () => {
 
   const handleTextChange = (event) => {
     setDesiredText(event.target.value);
+  };
+
+  const handleImageClick = () => {
+    // input 요소를 클릭
+    fileInputRef.current.click();
   };
 
   const handleCancel = () => {
@@ -50,21 +56,21 @@ const CakeDesign = () => {
 
       <S.InputContainer>
         {/* 이미지 업로드 */}
-        <S.InputBox>
+        <S.InputBox onClick={handleImageClick}>
           <S.ImageUploadBox>
             {selectedImage ? (
               <S.PreviewImage src={selectedImage} alt="Uploaded" />
             ) : (
               <span>사진 첨부</span>
             )}
-            <input
-              type="file"
-              id="image-upload"
-              accept="image/*"
-              onChange={handleImageChange}
-              style={{ display: "none" }}
-            />
           </S.ImageUploadBox>
+          <input
+            type="file"
+            ref={fileInputRef} // input 요소 참조
+            accept="image/*"
+            onChange={handleImageChange}
+            style={{ display: "none" }} // 화면에 표시되지 않음
+          />
           <S.InputLabel>원하는 이미지</S.InputLabel>
         </S.InputBox>
 
