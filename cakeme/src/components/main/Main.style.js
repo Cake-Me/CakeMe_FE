@@ -89,7 +89,7 @@ export const CategotyImage = styled.img`
 
 export const Text = styled.div`
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   color: #333;
 `;

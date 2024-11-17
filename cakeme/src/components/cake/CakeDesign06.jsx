@@ -33,7 +33,7 @@ const CakeDesign = () => {
   };
 
   const handleNext = () => {
-    navigate("/cake/7");
+    navigate("/cake/result");
   };
 
   return (
