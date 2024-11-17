@@ -570,3 +570,53 @@ export const DesignOptions= styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
 `;
+
+
+//07
+export const Title07 = styled.h1`
+  font-size: 30px;
+  color: #593e17;
+  margin-bottom: 30px;
+`;
+
+export const DesignOptions07 = styled.div`
+  display: flex;
+  gap: 3%; /* 카드 간 간격 */
+  justify-content: center; /* 중앙 정렬 */
+  width: 100%;
+  margin-top: 30px;
+`;
+
+export const DesignCard = styled.div`
+  border: 2px solid ${(props) => (props.selected ? "#2a74ba" : "#dcdcdc")}; /* 선택 시 파란 테두리 */
+  border-radius: 15px; /* 둥근 모서리 */
+  padding: 10px;
+  background-color: ${(props) => (props.selected ? "#ffffff" : "#f8f8f8")}; /* 선택 시 배경 흰색 */
+  transition: all 0.3s ease; /* 부드러운 전환 효과 */
+  width: 310px;
+  height: 310px;
+  cursor: pointer;
+  box-shadow: ${(props) =>
+    props.selected
+      ? "0px 4px 12px rgba(42, 116, 186, 0.5)" /* 선택 시 그림자 */
+      : "0px 2px 4px rgba(0, 0, 0, 0.1)"}; /* 비선택 시 약간의 그림자 */
+
+  &:hover {
+    border-color: #2a74ba; /* 호버 시 테두리 색상 강조 */
+  }
+`;
+
+export const DesignImage = styled.img`
+  width: 305px;
+  height: 260px;
+  border-radius: 10px; /* 이미지 둥근 모서리 */
+  object-fit: cover; /* 이미지 크기 조절 방식 */
+`;
+
+export const DesignLabel = styled.p`
+  font-size: 18px; /* 라벨 크기 */
+  color: #000; /* 라벨 색상 */
+  font-weight: bold; /* 글씨 두껍게 */
+  text-align: center;
+  margin: 4%;
+`;
