@@ -15,7 +15,7 @@ const CakeDesignResult = () => {
       // 다시 추천받기 동작 처리
       console.log("다시 추천받기 클릭됨");
       navigate("/cake/result");
-    };
+    }; 
   
     const handleConfirm = () => {
       // 디자인 확정 동작 처리
