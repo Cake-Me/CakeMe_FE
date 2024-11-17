@@ -113,6 +113,7 @@ export const ShapeLabel = styled.p`
   top: 100%; /* 버튼 아래로 글씨를 이동 */
   left: 50%;
   transform: translateX(-50%);
+  width: 100px;
 `;
 
 
@@ -363,6 +364,7 @@ export const SelectedColor = styled.div`
 export const ColorDisplay = styled.div`
   width: 200px;
   height: 80px;
+  padding:5px;
   border-radius: 20px;
   border: 2px solid #6f624f;
   margin-bottom: 10px;
@@ -410,6 +412,7 @@ export const InputBox = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  margin-right: 5%;
 `;
 
 // 이미지 업로드 박스
@@ -473,4 +476,97 @@ export const TextArea = styled.textarea`
 export const InputLabel = styled.span`
   font-size: 20px;
   color: #000000;
+`;
+
+export const SituationOptions= styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+`;
+
+
+export const InputContainer04 = styled.div`
+  display: flex;
+  justify-content: center; /* 수평 정렬 */
+  align-items: center; /* 수직 정렬 */
+  margin: 10px 20px; /* 전체 컨테이너 여백 */
+`;
+
+
+export const SituationButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px; /* 버튼과 테두리 간 여백 */
+  border: 2px ${(props) => (props.selected ? "solid" : "dashed")} ${(props) => (props.selected ? "#593E17" : "#6F624F")}; 
+  border-radius: 10px;
+  background-color: ${(props) => (props.selected ? "#FFFFFF" : "#FFFCF7")};
+  transition: all 0.3s ease;
+  position: relative; /* 글씨 위치를 버튼 바깥에 놓기 위해 사용 */
+
+  box-shadow: ${(props) =>
+    props.selected
+      ? "0px 4px 8px rgba(0, 0, 0, 0.2)" /* 선택된 경우 그림자 */
+      : "none"}; /* 선택되지 않았을 경우 그림자 없음 */
+  &:hover {
+    border-color: #6F624F;
+  }
+`;
+
+
+export const SituationImage = styled.img`
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+
+export const SituationLabel = styled.p`
+  font-size: 20px;
+  color: #000000;
+  margin-top: 10px;
+  position: absolute;
+  top: 100%; /* 버튼 아래로 글씨를 이동 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+`;
+
+// 입력 박스 스타일
+export const InputBox04 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3%;
+  margin-right: 3%;
+`;
+
+
+export const TextArea04 = styled.textarea`
+  width: 400px; 
+  height: 250px; 
+  border: 2px solid #6f624f;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 16px;
+  color: #000;
+  resize: none;
+  background-color: #fffcf7;
+
+
+  &::placeholder {
+    color: #999;
+    font-size: 14px;
+    font-family: "Pretendard", sans-serif; /* Pretendard 적용 */
+  }
+`;
+
+//05
+export const DesignOptions= styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
 `;
