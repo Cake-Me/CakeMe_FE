@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const SectionTitle = styled.h4`
+export const SectionTitle = styled.p`
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;

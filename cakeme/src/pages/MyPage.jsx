@@ -11,6 +11,7 @@ const MyPage = () => {
   // 각 섹션에 대한 ref 생성
   const userInfoRef = useRef(null);
   const designSectionRef = useRef(null);
+  const communityRef = useRef(null);
   const scrapRef = useRef(null);
   const myPostsRef = useRef(null);
   const commentsRef = useRef(null);
@@ -39,6 +40,7 @@ const MyPage = () => {
             onNavigate={{
               userInfo: () => userInfoRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
               designSection: () => designSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+              community: () => communityRef.current?.scrollIntoView({behavior: 'smooth', block:'start'}),
               scrap: () => scrapRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
               myPosts: () => myPostsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
               comments: () => commentsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
@@ -55,7 +57,7 @@ const MyPage = () => {
 
           {/* 디자인 내역 섹션 */}
           <div ref={designSectionRef}>
-            <SectionTitle>디자인 내역</SectionTitle>
+            <Title>디자인 내역</Title>
             <CategoryTabs />
             <CardGrid>
               {getCurrentPageItems(designPage).map((cake, index) => (
@@ -72,6 +74,9 @@ const MyPage = () => {
           <Divider />
 
           {/* 스크랩 섹션 */}
+          <div ref={communityRef}>
+            <Title>커뮤니티 내역</Title>
+          </div>
           <div ref={scrapRef}>
             <SectionTitle>스크랩</SectionTitle>
             <CategoryTabs />
@@ -87,7 +92,6 @@ const MyPage = () => {
             />
           </div>
 
-          <Divider />
 
           {/* 내가 쓴 글 섹션 */}
           <div ref={myPostsRef}>
@@ -105,7 +109,6 @@ const MyPage = () => {
             />
           </div>
 
-          <Divider />
 
           {/* 댓글 단 글 섹션 */}
           <div ref={commentsRef}>
@@ -162,7 +165,7 @@ const RightPanel = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 20px;
+  // padding: 20px;
 `;
 
 const Divider = styled.hr`
@@ -176,9 +179,15 @@ const Divider = styled.hr`
 const CardGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 한 행에 2개의 카드 */
-  gap: 20px;
+  // gap: 40px;
   width: 100%;
-  margin-bottom: 30px;
+  // margin-bottom: 30px;
+  justify-items: center;
+`;
+
+const Title = styled.h2`
+  margin-left: 15px;
+  color : #593E17;
 `;
 
 export default MyPage;
