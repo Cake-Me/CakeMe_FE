@@ -12,6 +12,7 @@ import Cake4 from "./pages/Cake4.jsx";
 import Cake5 from "./pages/Cake5.jsx";
 import Cake6 from "./pages/Cake6.jsx";
 import CakeResult from "./pages/CakeResult.jsx";
+import MyPage from "./pages/MyPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -61,7 +62,11 @@ const router = createBrowserRouter([
         {
           path: 'cake/result',
           element: <CakeResult/>
-        },         
+        },
+        {
+          path: 'mypage',
+          element: <MyPage/>
+        },          
       ]
   },
 
