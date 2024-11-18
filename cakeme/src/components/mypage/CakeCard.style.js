@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CakeCardContainer = styled.div`
   width: 200px;
   text-align: center;
-  margin-left: 20px;
+  // margin-left: 20px;
 `;
 
 export const CakeImage = styled.div`
@@ -14,14 +14,17 @@ export const CakeImage = styled.div`
   background-image: url(${(props) => props.src}); /* props로 이미지 경로 전달 */
   background-size: cover; /* 이미지 크기를 컴포넌트에 맞게 조정 */
   background-position: center; /* 이미지 중앙 정렬 */
+  margin-top : 10px;
 `;
 
 export const CakeTitle = styled.p`
-  margin-top: 20px;
+  // margin-top: 20px;
   font-size: 18px;
   font-weight: bold;
+  margin-bottom: 0px;
 `;
 
 export const CakeTime = styled.p`
+  margin-top : 5px;
   font-size: 14px;
 `;

@@ -4,7 +4,8 @@ export const UserInfoContainer = styled.div`
   // display: flex;
   // align-items: center;
   margin-bottom: 20px;
-  
+  // justify-content: center;
+  margin-left:15px;
 `;
 
 export const ProfileImage = styled.div`
@@ -78,20 +79,29 @@ export const UserId2 = styled.p`
 `;
 
 export const ButtonGroup = styled.div`
+  display: flex; /* Flexbox 활성화 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  gap: 50px; /* 버튼 간 간격 */
   margin-top: 20px;
+  // margin-left : 10px;
 `;
+
 
 export const Button = styled.button`
-  margin-right: 10px;
-  padding: 8px 16px;
-  background-color: #FFF;
-  border: 1px solid #BDAB99;
-  border-radius: 10px;
+  height: 38px;
+  width: 208px;
+  background-color: #cfb7a0;
+  color: #f7f2eb;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 400;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #BDAB99;
+    background-color: #bdab99;
   }
 `;
+
