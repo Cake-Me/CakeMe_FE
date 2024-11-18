@@ -11,7 +11,7 @@ const StoreList = ({ stores }) => {
             <S.Title>{store.name}</S.Title>
             <S.Paragraph>{store.location}</S.Paragraph>
             <S.Link href={store.url} target="_blank" rel="noopener noreferrer">
-              <S.StoreListButton>상세 보기</S.StoreListButton>
+              <S.StoreListButton>상세 보기</S.StoreListButton> 
             </S.Link>
           </S.StoreListWrapper>
         ))
