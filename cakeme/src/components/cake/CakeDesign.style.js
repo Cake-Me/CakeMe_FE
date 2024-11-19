@@ -349,7 +349,22 @@ export const SelectedColorsContainer = styled.div`
   width: 200px;
   margin-right:20%;
   margin-top:30px;
+    gap: ${(props) => (props.hasSelectedColors ? "0px" : "65px")}; 
 `;
+
+
+export const DefaultLabel = styled.div`
+  font-size: 16px;
+  color: #888;
+  text-align: center;
+  padding: 20px;
+ border: 2px solid #6f624f;
+  border-radius: 20px;
+      width: 170px;
+    height: 50px;
+   
+`;
+
 
 
 // 선택된 단일 컬러 박스

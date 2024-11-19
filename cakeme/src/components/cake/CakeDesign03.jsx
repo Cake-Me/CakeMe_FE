@@ -83,15 +83,29 @@ const CakeDesign = () => {
 />
         </S.PickerContainer>
 
-        {/* 선택된 색상 표시 */}
-        <S.SelectedColorsContainer>
-          {selectedColors.map((selectedColor, index) => (
-            <S.SelectedColor key={index}>
-              <S.ColorDisplay style={{ backgroundColor: selectedColor }} />
-              <S.ColorCode>{selectedColor}</S.ColorCode>
-            </S.SelectedColor>
-          ))}
-        </S.SelectedColorsContainer>
+        <S.SelectedColorsContainer hasSelectedColors={selectedColors.length > 0}>
+  {/* 첫 번째 슬롯 */}
+  {selectedColors[0] ? (
+    <S.SelectedColor>
+      <S.ColorDisplay style={{ backgroundColor: selectedColors[0] }} />
+      <S.ColorCode>{selectedColors[0]}</S.ColorCode>
+    </S.SelectedColor>
+  ) : (
+    <S.DefaultLabel>색상 선택해주세요</S.DefaultLabel>
+  )}
+
+  {/* 두 번째 슬롯 */}
+  {selectedColors[1] ? (
+    <S.SelectedColor>
+      <S.ColorDisplay style={{ backgroundColor: selectedColors[1] }} />
+      <S.ColorCode>{selectedColors[1]}</S.ColorCode>
+    </S.SelectedColor>
+  ) : (
+    <S.DefaultLabel>색상 선택해주세요</S.DefaultLabel>
+  )}
+</S.SelectedColorsContainer>
+
+
       </S.ColorSelectionContainer>
       
       <S.ActionButtons>
