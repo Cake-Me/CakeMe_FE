@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigate } from 'react-router-dom';
+import GoogleLogo from '../assets/image/google.png';
+import KakaoLogo from '../assets/image/kakao.png';
+import NaverLogo from '../assets/image/naver.png';
 
 const Container = styled.div`
   display: flex;
@@ -23,8 +27,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* 수직 중앙 정렬 */
-
+  justify-content: center;
 `;
 
 const InputContainer = styled.div`
@@ -77,7 +80,49 @@ const LoginButton = styled.button`
   }
 `;
 
+const Divider = styled.div`
+  margin: 20px 0;
+  width: 350px;
+  text-align: center;
+  border-bottom: 1px solid #c7a89f;
+  line-height: 0.1em;
+
+  span {
+    background: #fff;
+    padding: 0 10px;
+    color: #c7a89f;
+    font-size: 14px;
+  }
+`;
+
+const SNSButton = styled.button`
+  width: 350px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: ${(props) => props.textColor || '#000'};
+  background-color: ${(props) => props.bgColor || '#fff'};
+  border: 1px solid ${(props) => props.borderColor || '#ccc'};
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+`;
+
 const Login = () => {
+  const navigate = useNavigate();
+
   const schema = yup.object().shape({
     email: yup.string().email('올바른 이메일 형식이 아닙니다.').required('이메일은 필수 입력 사항입니다.'),
     password: yup
@@ -125,6 +170,29 @@ const Login = () => {
           LOGIN
         </LoginButton>
       </Form>
+      <Divider>
+        <span>SNS 계정으로 간편 가입하기</span>
+      </Divider>
+      <SNSButton
+        bgColor="#EDE7E1"
+        borderColor="#CFB7A0"
+        textColor="#783C03"
+        onClick={() => navigate('/signup')} // 회원가입 버튼 클릭 시 /signup으로 이동
+      >
+        회원가입 하기
+      </SNSButton>
+      <SNSButton bgColor="#fff" borderColor="#ccc">
+  <img src={GoogleLogo} alt="Google" />
+  구글로 시작하기
+</SNSButton>
+      <SNSButton bgColor="#FFE812" borderColor="#FFD400" textColor="#000">
+      <img src={KakaoLogo} alt="Kakao" />
+        카카오톡으로 시작하기
+      </SNSButton>
+      <SNSButton bgColor="#03C75A" borderColor="#03C75A" textColor="#fff">
+      <img src={NaverLogo} alt="Naver" />
+        네이버로 시작하기
+      </SNSButton>
     </Container>
   );
 };
