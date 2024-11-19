@@ -3,149 +3,174 @@ import styled from 'styled-components';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom'; // useNavigate 추가
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
-  color: white;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;  
-  align-items: center;  
-`;
-
-const StyledInput = styled.input`
-  padding: 10px;  
-  border-radius: 10px;
-  width: 400px;  
-  background-color: white;
-  margin: 10px 0;
-`;
-
-const LoginButton = styled.input`
-  padding: 10px;  
-  border-radius: 10px;
-  width: 420px;
-  background-color: ${props => (props.disabled ? 'gray' : '#c4006a')};
-  color: white;
-
-  &:hover {
-    background-color: ${props => (props.disabled ? 'gray' : '#000080')};
-    color: #fff;
-  }
-`;
-
-const Input = ({ type, placeholder, register, name, error }) => (
-  <>
-    <StyledInput type={type} placeholder={placeholder} {...register(name)} />
-    {error && <p style={{ color: 'red', fontSize: '12px' }}>{error.message}</p>}
-  </>
-);
+import { useNavigate } from 'react-router-dom';
 
 const Signuppage = () => {
-  const [apiError, setApiError] = useState(null); // API 에러 상태 추가
-  const navigate = useNavigate(); // navigate 훅 초기화
+  const [apiError, setApiError] = useState(null);
+  const navigate = useNavigate();
+
   const schema = yup.object().shape({
-    email: yup
-      .string('문자열이어야 합니다.')
-      .email('유효한 이메일 형식이어야 합니다.')
-      .required('이메일을 반드시 입력해주세요!'),
+    username: yup.string().required('ID를 입력해주세요.'),
+    email: yup.string().email('Invalid email').required('이메일을 입력해주세요.'),
     password: yup
-      .string('문자열이어야 합니다.')
+      .string()
       .min(8, '비밀번호는 8자 이상이어야 합니다.')
       .max(16, '비밀번호는 16자 이하여야 합니다.')
-      .required('비밀번호는 필수 입력요소입니다.'),
+      .required('비밀번호를 입력해주세요.'),
     passwordCheck: yup
       .string()
       .oneOf([yup.ref('password'), null], '비밀번호가 일치하지 않습니다.')
-      .required('비밀번호 검증 또한 필수요소입니다.'),
+      .required('비밀번호 다시한번 입력해주세요'),
   });
-  
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    mode: 'onChange',
   });
 
   const onSubmit = async (data) => {
-    setApiError(null); // API 요청 전 에러 상태 초기화
     try {
       const response = await fetch('http://localhost:3000/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          email: data.email,
-          password: data.password,
-          passwordCheck: data.passwordCheck,
-        }),
+        body: JSON.stringify(data),
       });
-  
-      // 응답 상태 코드 로그
-      console.log('Response status:', response.status);
-  
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || '회원가입에 실패했습니다.');
-      }
-  
-      const result = await response.json();
-      console.log('회원가입 성공:', result);
-  
-      // 여기서 navigate가 호출되어야 함
+      if (!response.ok) throw new Error('Registration failed');
       navigate('/login');
-    } catch (error) {
-      setApiError(error.message); 
-      console.error('Error:', error);
+    } catch (err) {
+      setApiError(err.message);
     }
   };
-  
-
-  const isDisabled = Object.keys(errors).length > 0;
 
   return (
-    <Container>
-      <h3>회원가입</h3>
-      {apiError && <p style={{ color: 'red', fontSize: '14px' }}>{apiError}</p>} {/* API 에러 메시지 표시 */}
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          type="email"
-          placeholder="이메일을 입력해주세요!"
-          register={register}
-          name="email"
-          error={errors.email}
-        />
-        
-        <Input
-          type="password"
-          placeholder="비밀번호를 입력해주세요!"
-          register={register}
-          name="password"
-          error={errors.password}
-        />
-
-        <Input
-          type="password"
-          placeholder="비밀번호를 다시 입력해주세요!"
-          register={register}
-          name="passwordCheck"
-          error={errors.passwordCheck}
-        />
-
-        <LoginButton type="submit" value="제출" disabled={isDisabled} />
-      </Form>
-    </Container>
+    <Wrapper>
+      <LeftSection>
+        <Title>CAKE ME</Title>
+        <Subtitle>원하는 케이크를 쉽게</Subtitle>
+        <Subtitle style={{marginRight: '20%'}}>디자인 해보세요!</Subtitle>
+        <Circle>로고</Circle>
+      </LeftSection>
+      <RightSection>
+        <h1 style={{fontSize:'50px', color: '#7E5731'}}>Sign Up</h1>
+        {apiError && <p style={{ color: 'red' }}>{apiError}</p>}
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <StyledInput
+            type="text"
+            placeholder="Username"
+            {...register('username')}
+          />
+          <p style={{ color: 'red', fontSize: '12px' }}>{errors.username?.message}</p>
+          <StyledInput type="email" placeholder="Email" {...register('email')} />
+          <p style={{ color: 'red', fontSize: '12px' }}>{errors.email?.message}</p>
+          <StyledInput
+            type="password"
+            placeholder="Password"
+            {...register('password')}
+          />
+          <p style={{ color: 'red', fontSize: '12px' }}>{errors.password?.message}</p>
+          <StyledInput
+            type="password"
+            placeholder="Confirm Password"
+            {...register('passwordCheck')}
+          />
+          <p style={{ color: 'red', fontSize: '12px' }}>
+            {errors.passwordCheck?.message}
+          </p>
+          <SubmitButton type="submit">회원가입</SubmitButton>
+        </Form>
+      </RightSection>
+    </Wrapper>
   );
 };
 
 export default Signuppage;
+
+
+const Wrapper = styled.div`
+  display: flex;
+  height: 100vh;
+`;
+
+const LeftSection = styled.div`
+  flex: 1;
+  background-color: #f7f3ee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+`;
+
+const RightSection = styled.div`
+  flex: 1;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Title = styled.h1`
+  color: #7E5731;
+  font-size: 90px;
+  margin-bottom: 10px;
+`;
+
+const Subtitle = styled.p`
+  color: #7E5731;
+  font-size: 30px;
+  margin: 5px;
+  margin-right: 12%;
+`;
+
+const Circle = styled.div`
+  margin-top: 3%;
+  width: 100px;
+  height: 100px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #7E5731;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+`;
+
+const StyledInput = styled.input`
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #783C03;
+  border-radius: 5px;
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  &::placeholder {
+    color: #783C03; /* 플레이스홀더 색상 */
+    opacity: 0.7; /* 플레이스홀더 투명도 */
+  }
+`;
+
+const SubmitButton = styled.button`
+  width: 107%;
+  padding: 10px;
+  background-color: #6b4e3d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:disabled {
+    background-color: gray;
+  }
+`;
