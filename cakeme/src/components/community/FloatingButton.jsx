@@ -3,7 +3,7 @@ import { FaPencilAlt } from "react-icons/fa";
 
 const FloatingButton = () => {
     return (
-        <S.Button>
+        <S.Button to="/community/post">
             <FaPencilAlt style={{ marginRight: '8px'}} /> 글쓰기
         </S.Button>
     );  
