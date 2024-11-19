@@ -5,6 +5,8 @@ import NotFound from "./pages/not-found.jsx";
 import RootLayout from "./layout/root-layout.jsx";
 import Map from "./pages/MapPage.jsx"
 import Community from "./pages/Community.jsx";
+import CommunityPost from "./pages/CommunityPost.jsx";
+import CommunityPostDetail from "./pages/CommunityPostDetail.jsx";
 import Cake from "./pages/Cake.jsx";
 import Cake2 from "./pages/Cake2.jsx";
 import Cake3 from "./pages/Cake3.jsx";
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
           {
             path: 'community',
             element: <Community/>
+        },
+        {
+          path: 'community/post',
+          element: <CommunityPost/>
+        },
+        {
+          path: 'community/detail',
+          element: <CommunityPostDetail/>
         },
         {
           path: 'cake',
