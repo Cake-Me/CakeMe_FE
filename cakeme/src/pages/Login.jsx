@@ -24,15 +24,19 @@ const Title = styled.h1`
 `;
 
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: block; /* 기본값인 block으로 설정 */
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto 20px; /* 좌우 중앙 정렬 */
+  text-align: center; /* 자식 요소의 텍스트 중앙 정렬 */
 `;
+
 
 const InputContainer = styled.div`
   position: relative;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 20px;
 `;
 
 const Input = styled.input`
@@ -59,7 +63,8 @@ const Icon = styled.span`
 `;
 
 const LoginButton = styled.button`
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   padding: 12px;
   font-size: 16px;
   color: #fff;
@@ -82,7 +87,8 @@ const LoginButton = styled.button`
 
 const Divider = styled.div`
   margin: 20px 0;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   text-align: center;
   border-bottom: 1px solid #c7a89f;
   line-height: 0.1em;
@@ -118,6 +124,28 @@ const SNSButton = styled.button`
   &:hover {
     opacity: 0.9;
   }
+`;
+const SignupButton = styled(SNSButton)`
+  background-color: #EDE7E1;
+  border: 1px solid #CFB7A0;
+  color: #783C03;
+`;
+
+const GoogleButton = styled(SNSButton)`
+  background-color: #fff;
+  border: 1px solid #ccc;
+`;
+
+const KakaoButton = styled(SNSButton)`
+  background-color: #FFE812;
+  border: 1px solid #FFD400;
+  color: #000;
+`;
+
+const NaverButton = styled(SNSButton)`
+  background-color: #03C75A;
+  border: 1px solid #03C75A;
+  color: #fff;
 `;
 
 const Login = () => {
@@ -173,26 +201,19 @@ const Login = () => {
       <Divider>
         <span>SNS 계정으로 간편 가입하기</span>
       </Divider>
-      <SNSButton
-        bgColor="#EDE7E1"
-        borderColor="#CFB7A0"
-        textColor="#783C03"
-        onClick={() => navigate('/signup')} // 회원가입 버튼 클릭 시 /signup으로 이동
-      >
-        회원가입 하기
-      </SNSButton>
-      <SNSButton bgColor="#fff" borderColor="#ccc">
+      <SignupButton onClick={() => navigate('/signup')}>회원가입 하기</SignupButton>
+<GoogleButton>
   <img src={GoogleLogo} alt="Google" />
   구글로 시작하기
-</SNSButton>
-      <SNSButton bgColor="#FFE812" borderColor="#FFD400" textColor="#000">
-      <img src={KakaoLogo} alt="Kakao" />
-        카카오톡으로 시작하기
-      </SNSButton>
-      <SNSButton bgColor="#03C75A" borderColor="#03C75A" textColor="#fff">
-      <img src={NaverLogo} alt="Naver" />
-        네이버로 시작하기
-      </SNSButton>
+</GoogleButton>
+<KakaoButton>
+  <img src={KakaoLogo} alt="Kakao" />
+  카카오톡으로 시작하기
+</KakaoButton>
+<NaverButton>
+  <img src={NaverLogo} alt="Naver" />
+  네이버로 시작하기
+</NaverButton>
     </Container>
   );
 };
