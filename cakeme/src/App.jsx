@@ -15,6 +15,8 @@ import Cake5 from "./pages/Cake5.jsx";
 import Cake6 from "./pages/Cake6.jsx";
 import CakeResult from "./pages/CakeResult.jsx";
 import MyPage from "./pages/MyPage.jsx";
+import Login from "./pages/Login.jsx";
+import Signup from "./pages/Signup.jsx"
 
 const router = createBrowserRouter([
   {
@@ -76,7 +78,15 @@ const router = createBrowserRouter([
         {
           path: 'mypage',
           element: <MyPage/>
-        },          
+        },    
+        {
+          path: 'login',
+          element: <Login />
+        },    
+        {
+          path: 'signup',
+          element: <Signup />
+        },     
       ]
   },
 
