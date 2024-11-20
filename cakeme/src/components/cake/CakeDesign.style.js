@@ -684,3 +684,36 @@ export const ActionButton = styled.button`
   }
 `;
 
+export const Container_ = styled.div`
+  flex-grow: 1;
+  text-align: center;
+  background-color: #f8f5ee;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto; /* 중앙 정렬 */
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+`;
+
+
+export const Title_ = styled.h2`
+  font-size: 30px;
+  font-weight: bold;
+  color: #593e17;
+  margin-bottom: 20px;
+`;
+export const CardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 한 행에 4개의 카드 */
+  gap: 20px; /* 카드 간 간격 */
+  justify-items: center; /* 카드 중앙 정렬 */
+  margin-top: 20px;
+  width: 100%; /* 부모 컨테이너의 너비에 맞춤 */
+  box-sizing: border-box; /* padding과 border를 포함한 너비 계산 */
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+`;
+
+
+

@@ -18,6 +18,7 @@ import MyPage from "./pages/MyPage.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import CakeSelect from "./pages/CakeSelect.jsx";
+import CakeCategory from "./pages/Category.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
         {
           path: 'cake/',
           element: <CakeSelect/>
+        },
+        {
+          path: 'category/',
+          element: <CakeCategory/>
         },
         {
           path: 'cake/1',
