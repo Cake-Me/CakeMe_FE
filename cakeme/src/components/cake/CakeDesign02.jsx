@@ -18,7 +18,7 @@ const CakeDesign = () => {
   };
 
   const handleCancel = () => {
-    navigate("/cake");
+    navigate("/cake/1");
   };
 
   const handleCancel_next = () => {

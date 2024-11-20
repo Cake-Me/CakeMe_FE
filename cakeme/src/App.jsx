@@ -16,7 +16,9 @@ import Cake6 from "./pages/Cake6.jsx";
 import CakeResult from "./pages/CakeResult.jsx";
 import MyPage from "./pages/MyPage.jsx";
 import Login from "./pages/Login.jsx";
-import Signup from "./pages/Signup.jsx"
+import Signup from "./pages/Signup.jsx";
+import CakeSelect from "./pages/CakeSelect.jsx";
+import CakeCategory from "./pages/Category.jsx";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +50,15 @@ const router = createBrowserRouter([
           element: <CommunityPostDetail/>
         },
         {
-          path: 'cake',
+          path: 'cake/',
+          element: <CakeSelect/>
+        },
+        {
+          path: 'category/',
+          element: <CakeCategory/>
+        },
+        {
+          path: 'cake/1',
           element: <Cake/>
         },
         {

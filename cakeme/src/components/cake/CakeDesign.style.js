@@ -635,3 +635,85 @@ export const DesignLabel = styled.p`
   text-align: center;
   margin: 4%;
 `;
+
+export const ActionSection = styled.div`
+  display: flex;
+  justify-content: space-between; /* 양쪽 정렬 */
+  gap: 50px;
+  height: 100vh;
+  margin: 50px 10%;
+`;
+
+export const ActionCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  width: 500px; /* 카드의 고정 너비 */
+ 
+  transition: all 0.3s ease; /* 부드러운 전환 효과 */
+
+ 
+`;
+
+export const ActionText = styled.p`
+  font-size: 30px;
+  font-weight: bold;
+  color: #5a3827;
+  margin-bottom: 15px;
+`;
+
+export const ActionButton = styled.button`
+  border: 1px solid #6F624F;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #FFFCF7;
+  color: #000000;
+  transition: all 0.3s ease;
+  margin-top:20px;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &:active {
+    background-color: #e0e0e0;
+  }
+`;
+
+export const Container_ = styled.div`
+  flex-grow: 1;
+  text-align: center;
+  background-color: #f8f5ee;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto; /* 중앙 정렬 */
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+`;
+
+
+export const Title_ = styled.h2`
+  font-size: 30px;
+  font-weight: bold;
+  color: #593e17;
+  margin-bottom: 20px;
+`;
+export const CardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 한 행에 4개의 카드 */
+  gap: 20px; /* 카드 간 간격 */
+  justify-items: center; /* 카드 중앙 정렬 */
+  margin-top: 20px;
+  width: 100%; /* 부모 컨테이너의 너비에 맞춤 */
+  box-sizing: border-box; /* padding과 border를 포함한 너비 계산 */
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+`;
+
+
+
