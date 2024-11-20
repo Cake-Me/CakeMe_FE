@@ -635,3 +635,52 @@ export const DesignLabel = styled.p`
   text-align: center;
   margin: 4%;
 `;
+
+export const ActionSection = styled.div`
+  display: flex;
+  justify-content: space-between; /* 양쪽 정렬 */
+  gap: 50px;
+  height: 100vh;
+  margin: 50px 10%;
+`;
+
+export const ActionCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  width: 500px; /* 카드의 고정 너비 */
+ 
+  transition: all 0.3s ease; /* 부드러운 전환 효과 */
+
+ 
+`;
+
+export const ActionText = styled.p`
+  font-size: 30px;
+  font-weight: bold;
+  color: #5a3827;
+  margin-bottom: 15px;
+`;
+
+export const ActionButton = styled.button`
+  border: 1px solid #6F624F;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #FFFCF7;
+  color: #000000;
+  transition: all 0.3s ease;
+  margin-top:20px;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &:active {
+    background-color: #e0e0e0;
+  }
+`;
+
