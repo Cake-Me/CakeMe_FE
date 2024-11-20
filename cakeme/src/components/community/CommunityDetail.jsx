@@ -5,6 +5,7 @@ import { LuPencilLine } from "react-icons/lu";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import { GoTag } from "react-icons/go";
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import pro1 from '../../assets/community/jjang.jpg';
 
 const CommunityDetail = () => {
     const [stars, setStars] = useState([false, false, false, false, false]);
@@ -88,6 +89,35 @@ const CommunityDetail = () => {
                     ))}
                 </S.StarRate>
             </S.InfoSet>
+            <S.CommentContainer>
+                <S.CommentTitle>댓글</S.CommentTitle>
+                <S.CommentInput
+                    type="text" 
+                    name="text"
+                    rows="4"
+                    placeholder="댓글을 작성해 주세요!"
+                    spellCheck="false"
+                 />
+                <S.CommentButton>작성하기</S.CommentButton>
+                <S.PostLightLine />
+                <S.CommentProfile>
+                    <S.Img src={pro1} alt="Profile"></S.Img>
+                    <S.Name>채응이</S.Name>
+                </S.CommentProfile>
+                <S.CommentSection>
+                    <S.CommentText>댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.</S.CommentText>
+                    <S.CommentDate>2024.11.19.</S.CommentDate>
+                </S.CommentSection>
+                <S.PostLightLine />
+                <S.CommentProfile>
+                    <S.Img src={pro1} alt="Profile"></S.Img>
+                    <S.Name>채응이</S.Name>
+                </S.CommentProfile>
+                <S.CommentSection>
+                    <S.CommentText>댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.</S.CommentText>
+                    <S.CommentDate>2024.11.19.</S.CommentDate>
+                </S.CommentSection>
+            </S.CommentContainer>
         </S.PostContainer>
     );
 };
