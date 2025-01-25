@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import * as S from './LeftBar.style';
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const truncateText = (text, maxLength) => {
     return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
@@ -17,6 +18,12 @@ const LeftBar = () => {
 
     const postTitle = '생일케이크크크크크크크';
 
+    const navigate = useNavigate();
+
+    const handleDetail = () => {
+        navigate("/community/detail");
+    };
+
     return (
         <S.LeftBarContainer>
             <S.TitleSet>
@@ -25,7 +32,7 @@ const LeftBar = () => {
             </S.TitleSet>
             <S.Line></S.Line>
             {stars.map((star, index) => (
-                <S.Post key={index}>
+                <S.Post key={index} onClick={handleDetail}>
                     <S.StarSection>
                         {star ? (
                             <FaStar
