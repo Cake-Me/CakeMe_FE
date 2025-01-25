@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as S from './Post.style';
 import { MdOutlineDriveFolderUpload } from "react-icons/md";
 import { GoTag } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 const category = { data: ["생일", "연인", "친구", "부모님", "선생님", "X-mas", "졸업", "회사", "결혼", "아이"] };
 
@@ -9,6 +10,7 @@ const Post = () => {
     const [preview, setPreview] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState("카테고리");
     const [showDropdown, setShowDropdown] = useState(false);
+    const navigate = useNavigate();
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -25,6 +27,10 @@ const Post = () => {
         setSelectedCategory(category); 
         setShowDropdown(false); 
     };
+
+    const handleList = () => {
+        navigate("/community")
+    }
 
     return (
         <S.PostContainer>
@@ -55,11 +61,12 @@ const Post = () => {
                         placeholder="게시글의 제목을 입력하세요."
                     />
                     <S.PostButtonSet>
-                        <S.PostListButton>목록 보기</S.PostListButton>
-                        <S.CancelButton>작성 취소</S.CancelButton>
+                        <S.PostListButton onClick={handleList}>목록 보기</S.PostListButton>
+                        <S.CancelButton onClick={handleList}>작성 취소</S.CancelButton>
                         <S.PostButton
                             type="submit"
                             value="게시글 작성"
+                            onClick={handleList}
                         />
                     </S.PostButtonSet>
                 </S.PostTitleSet>

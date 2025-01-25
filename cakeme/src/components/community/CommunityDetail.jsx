@@ -6,11 +6,13 @@ import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import { GoTag } from "react-icons/go";
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import pro1 from '../../assets/community/jjang.jpg';
+import { useNavigate } from "react-router-dom";
 
 const CommunityDetail = () => {
     const [stars, setStars] = useState([false, false, false, false, false]);
     const [isBookmarked, setIsBookmarked] = useState(false);
-    
+    const navigate = useNavigate();
+
     const toggleStar = (index) => {
         setStars((prevStars) => 
             prevStars.map((star, i) => (i === index ? !star : star))
@@ -19,6 +21,10 @@ const CommunityDetail = () => {
 
     const toggleBookmark = () => {
         setIsBookmarked((prevBookmark) => !prevBookmark); // Bookmark 상태 토글
+    };
+
+    const handleList = () => {
+        navigate("/community");
     };
 
     return (
@@ -43,7 +49,7 @@ const CommunityDetail = () => {
                                 onClick={toggleBookmark} 
                             />
                         )}
-                        <S.PostListButton>목록 보기</S.PostListButton>
+                        <S.PostListButton onClick={handleList}>목록 보기</S.PostListButton>
                         <S.EditButton>게시글 수정</S.EditButton>
                         <S.DeleteButton>게시글 삭제</S.DeleteButton>
                     </S.PostButtonSet>
