@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { signup } from '../api/userApi';
 
 const Signuppage = () => {
   const [apiError, setApiError] = useState(null);
@@ -20,7 +21,7 @@ const Signuppage = () => {
       .min(8, '비밀번호는 8자 이상이어야 합니다.')
       .max(16, '비밀번호는 16자 이하여야 합니다.')
       .required('비밀번호를 입력해주세요.'),
-    passwordCheck: yup
+      confirmPassword: yup
       .string()
       .oneOf([yup.ref('password'), null], '비밀번호가 일치하지 않습니다.')
       .required('비밀번호 다시한번 입력해주세요'),
@@ -34,7 +35,7 @@ const Signuppage = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data) => {
+  /*const onSubmit = async (data) => {
     try {
       const response = await fetch('http://localhost:3000/auth/register', {
         method: 'POST',
@@ -50,6 +51,18 @@ const Signuppage = () => {
       navigate('/login');
     } catch (err) {
       setApiError(err.message);
+    }
+  };*/
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    try {
+      const response = await signup(data);
+      console.log(response.data);
+      navigate('/login');
+    } catch (error) {
+      console.error(error.response?.data || error.message);
+      setApiError(error.response?.data?.message || '회원가입 실패');
     }
   };
 
@@ -82,10 +95,10 @@ const Signuppage = () => {
           <StyledInput
             type="password"
             placeholder="Confirm Password"
-            {...register('passwordCheck')}
+            {...register('confirmPassword')}
           />
           <p style={{ color: 'red', fontSize: '12px' , marginBottom: '10px'}}>
-            {errors.passwordCheck?.message}
+            {errors.confirmPassword?.message}
           </p>
           <SubmitButton type="submit">회원가입</SubmitButton>
         </Form>
