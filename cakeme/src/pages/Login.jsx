@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -7,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import GoogleLogo from '../assets/image/google.png';
 import KakaoLogo from '../assets/image/kakao.png';
 import NaverLogo from '../assets/image/naver.png';
+import { login } from '../api/userApi';
 
 const Container = styled.div`
   display: flex;
@@ -152,7 +152,10 @@ const Login = () => {
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
-    email: yup.string().email('올바른 이메일 형식이 아닙니다.').required('이메일은 필수 입력 사항입니다.'),
+    userId: yup
+        .string()
+        .matches(/^[a-zA-Z0-9_]+$/, '유효한 아이디를 입력해주세요.')
+        .required('아이디를 입력해주세요.'),
     password: yup
       .string()
       .min(8, '비밀번호는 최소 8자 이상이어야 합니다.')
@@ -164,9 +167,23 @@ const Login = () => {
     mode: 'onChange',
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    console.log('전송 데이터:', data); // 요청 데이터 확인용
+    try {
+      const response = await login(data); // API 요청
+      console.log('로그인 성공:', response.data);
+  
+      // 토큰 저장
+      localStorage.setItem('token', response.data.token);
+  
+      // 메인 페이지로 이동
+      navigate('/');
+    } catch (error) {
+      console.error('로그인 실패:', error.response?.data || error.message);
+      alert(error.response?.data?.message || '로그인에 실패했습니다.');
+    }
   };
+  
 
   const isDisabled = Object.keys(errors).length > 0;
 
@@ -177,13 +194,13 @@ const Login = () => {
         <InputContainer>
           <Icon>👤</Icon>
           <Input
-            type="email"
+            type="text"
             placeholder="ID"
-            onChange={(e) => setValue('email', e.target.value)}
-            {...register('email')}
+            onChange={(e) => setValue('userId', e.target.value)}
+            {...register('userId')}
           />
         </InputContainer>
-        <p style={{ color: 'red', fontSize: '12px' }}>{errors.email?.message}</p>
+        <p style={{ color: 'red', fontSize: '12px' }}>{errors.userId?.message}</p>
         <InputContainer>
           <Icon>🔒</Icon>
           <Input
