@@ -10,8 +10,11 @@ const Signuppage = () => {
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
-    username: yup.string().required('ID를 입력해주세요.'),
-    email: yup.string().email('Invalid email').required('이메일을 입력해주세요.'),
+    username: yup.string().required('사용자 이름을을 입력해주세요.'),
+    userId: yup
+    .string()
+    .matches(/^[a-zA-Z0-9_]+$/, '유효한 아이디를 입력해주세요.')
+    .required('아이디를 입력해주세요.'),
     password: yup
       .string()
       .min(8, '비밀번호는 8자 이상이어야 합니다.')
@@ -40,7 +43,10 @@ const Signuppage = () => {
         },
         body: JSON.stringify(data),
       });
-      if (!response.ok) throw new Error('Registration failed');
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Registration failed');
+      }
       navigate('/login');
     } catch (err) {
       setApiError(err.message);
@@ -65,20 +71,20 @@ const Signuppage = () => {
             {...register('username')}
           />
           <p style={{ color: 'red', fontSize: '12px' }}>{errors.username?.message}</p>
-          <StyledInput type="email" placeholder="Email" {...register('email')} />
-          <p style={{ color: 'red', fontSize: '12px' }}>{errors.email?.message}</p>
+          <StyledInput type="text" placeholder="userId" {...register('userId')} />
+          <p style={{ color: 'red', fontSize: '12px', marginBottom: '10px' }}>{errors.userId?.message}</p>
           <StyledInput
             type="password"
             placeholder="Password"
             {...register('password')}
           />
-          <p style={{ color: 'red', fontSize: '12px' }}>{errors.password?.message}</p>
+          <p style={{ color: 'red', fontSize: '12px' , marginBottom: '10px'}}>{errors.password?.message}</p>
           <StyledInput
             type="password"
             placeholder="Confirm Password"
             {...register('passwordCheck')}
           />
-          <p style={{ color: 'red', fontSize: '12px' }}>
+          <p style={{ color: 'red', fontSize: '12px' , marginBottom: '10px'}}>
             {errors.passwordCheck?.message}
           </p>
           <SubmitButton type="submit">회원가입</SubmitButton>
