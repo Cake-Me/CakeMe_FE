@@ -6,7 +6,7 @@ export const LeftBarContainer = styled.div`
     flex-direction: column; 
     align-items: flex-start; 
     padding: 20px;
-    gap: 10px; 
+    gap: 5px; 
     width: 217px;
     height: 454px;
     border-radius: 8px;

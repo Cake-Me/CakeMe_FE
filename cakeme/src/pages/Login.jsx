@@ -158,7 +158,8 @@ const Login = () => {
         .required('아이디를 입력해주세요.'),
     password: yup
       .string()
-      .min(8, '비밀번호는 최소 8자 이상이어야 합니다.')
+      .min(5, '비밀번호는 5자 이상이어야 합니다.')
+      .max(16, '비밀번호는 16자 이하여야 합니다.')
       .required('비밀번호는 필수 입력 사항입니다.'),
   });
 
@@ -168,21 +169,35 @@ const Login = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log('전송 데이터:', data); // 요청 데이터 확인용
+    console.log('📤 전송 데이터:', data); // 요청 데이터 확인용
+
     try {
-      const response = await login(data); // API 요청
-      console.log('로그인 성공:', response.data);
-  
-      // 토큰 저장
-      localStorage.setItem('token', response.data.token);
-  
-      // 메인 페이지로 이동
-      navigate('/');
+        const response = await login(data); // API 요청
+        console.log('✅ 로그인 성공:', response);
+
+        // 백엔드 응답에서 토큰 가져오기
+        const token = response.token || response.data?.token; // response 구조에 따라 변경 가능
+
+        if (token) {
+            // 토큰 저장
+            localStorage.setItem('token', token);
+            console.log('🔑 토큰 저장 완료:', token);
+
+            // 메인 페이지로 이동
+            navigate('/');
+        } else {
+            console.error('❌ 로그인 실패: 서버에서 토큰이 반환되지 않음');
+            alert('로그인에 실패했습니다. 다시 시도해주세요.');
+        }
     } catch (error) {
-      console.error('로그인 실패:', error.response?.data || error.message);
-      alert(error.response?.data?.message || '로그인에 실패했습니다.');
+        console.error('❌ 로그인 오류 발생:', error.response?.data || error.message);
+
+        // 오류 메시지 처리
+        const errorMessage = error.response?.data?.message || '로그인에 실패했습니다.';
+        alert(errorMessage);
     }
-  };
+};
+
   
 
   const isDisabled = Object.keys(errors).length > 0;

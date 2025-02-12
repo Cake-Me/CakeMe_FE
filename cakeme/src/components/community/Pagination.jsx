@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import * as S from './Pagination.style';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
@@ -26,7 +26,7 @@ const Pagination = () => {
             {[1, 2, 3].map((number) => (
                 <S.Button
                     key={number}
-                    active={activePage === number} // 현재 페이지 확인
+                    $isActive={activePage === number} // 현재 페이지 확인
                     onClick={() => handlePageClick(number)}
                 >
                     {number}

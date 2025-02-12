@@ -18,7 +18,7 @@ const Signuppage = () => {
     .required('아이디를 입력해주세요.'),
     password: yup
       .string()
-      .min(8, '비밀번호는 8자 이상이어야 합니다.')
+      .min(5, '비밀번호는 5자 이상이어야 합니다.')
       .max(16, '비밀번호는 16자 이하여야 합니다.')
       .required('비밀번호를 입력해주세요.'),
       confirmPassword: yup

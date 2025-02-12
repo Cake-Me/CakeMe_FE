@@ -5,7 +5,20 @@ const axiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: true,
 });
+
+// 🔹 요청 인터셉터: 매 요청마다 최신 토큰 추가
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token'); // 최신 토큰 가져오기
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 export default axiosInstance;
