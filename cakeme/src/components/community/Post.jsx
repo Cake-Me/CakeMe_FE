@@ -50,7 +50,7 @@ const Post = () => {
             console.log("✅ 게시글 작성 성공:", response);
     
             alert("게시글이 성공적으로 등록되었습니다.");
-            navigate("/community");
+            navigate("/community/posts");
         } catch (error) {
             console.error("❌ 게시글 작성 중 오류 발생:", error.response?.data || error.message);
             alert("게시글 작성 실패: " + (error.response?.data?.message || "오류 발생"));
@@ -64,7 +64,7 @@ const Post = () => {
     };
 
     const handleList = () => {
-        navigate("/community")
+        navigate("/community/posts")
     }
 
     return (

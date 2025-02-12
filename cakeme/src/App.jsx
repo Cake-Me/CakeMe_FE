@@ -38,7 +38,7 @@ const router = createBrowserRouter([
               element: <Map/>
           },
           {
-            path: 'community',
+            path: 'community/posts',
             element: <Community/>
         },
         {
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
           element: <CommunityPost/>
         },
         {
-          path: 'community/detail',
+          path: 'community/detail/:postId',
           element: <CommunityPostDetail/>
         },
         {

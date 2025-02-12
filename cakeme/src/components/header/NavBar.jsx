@@ -10,7 +10,7 @@ const Navbar = () => {
         <S.NavButton to="/">HOME</S.NavButton>
         <S.NavButton to="/cake">DESIGN</S.NavButton>
         <S.NavButton to="/map">MAP</S.NavButton>
-        <S.NavButton to="/community">COMMUNITY</S.NavButton>
+        <S.NavButton to="/community/posts">COMMUNITY</S.NavButton>
         <S.NavButton to="/mypage">MY PAGE</S.NavButton>
         <S.NavButton to="/login">LOGIN</S.NavButton>
       </S.NavButtonsWrapper>
