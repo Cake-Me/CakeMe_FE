@@ -51,16 +51,16 @@ export const NumberButtons = styled.div`
 export const Button = styled.button`
   width: 32px;
   height: 32px;
-  background-color: ${(props) => (props.$active ? '#CFB7A0' : '#F7F2EB')}; /* 활성화된 버튼 색상 */
-  color: ${(props) => (props.$active ? '#FFF' : '#555')};
+  background-color: ${(isActive) => (isActive ? '#CFB7A0' : '#F7F2EB')}; /* 활성화된 버튼 색상 */
+  color: ${(isActive) => (isActive ? '#FFF' : '#555')};
   font-size: 16px;
   font-weight: bold;
-  border: 1px solid ${(props) => (props.$active ? '#CFB7A0' : '#F7F2EB')}; 
+  border: 1px solid ${(isActive) => (isActive ? '#CFB7A0' : '#F7F2EB')}; 
   border-radius: 8px; 
   cursor: pointer;
 
   &:hover {
-    background-color: ${(props) => (props.$active ? '#CFB7A0' : '#e0d4c1')}; 
+    background-color: ${(isActive) => (isActive ? '#CFB7A0' : '#e0d4c1')}; 
     color: #FFF;
   }
 

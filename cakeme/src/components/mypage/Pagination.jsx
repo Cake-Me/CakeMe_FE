@@ -1,4 +1,3 @@
-import React from 'react';
 import * as S from './Pagination.style';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
@@ -27,7 +26,8 @@ const Pagination = ({ activePage, totalPages, onPageChange }) => {
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((number) => (
           <S.Button
             key={number}
-            $active={activePage === number} // `$active`로 전달
+            //$active={activePage === number} // `$active`로 전달
+            isActive={activePage === number}
             onClick={() => handlePageClick(number)}
           >
             {number}
